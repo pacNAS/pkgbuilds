@@ -3,6 +3,9 @@
 _This repository stores all the PKGBUILD's for building the packages that make
 up the pacNAS project_
 
+_The repository is splitted (like in the ArchLinux community as well) in the
+sub-directories core, extra, community and testing_
+
 ## Project Setup
 
 _How do I, as a developer, start working on the project?_ 
