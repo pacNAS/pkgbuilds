@@ -1,6 +1,8 @@
 # $Id: PKGBUILD 193063 2013-08-15 12:08:11Z allan $
 # Maintainer: Allan McRae <allan@archlinux.org>
 
+# Contributor: Markus M. May
+
 # toolchain build order: linux-api-headers->glibc->binutils->gcc->binutils->glibc
 # NOTE: libtool requires rebuilt with each new gcc version
 
