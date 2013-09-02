@@ -6,7 +6,7 @@
 
 pkgname=glibc
 pkgver=2.18
-pkgrel=2
+pkgrel=3
 pkgdesc="GNU C Library"
 arch=('i686' 'x86_64')
 url="http://www.gnu.org/software/libc"
@@ -38,10 +38,10 @@ md5sums=('88fbbceafee809e82efd52efa1e3c58f'
 
 prepare() {
   cd ${srcdir}/${pkgname}-${pkgver}
-  
+
   # upstream commit 91ce4085
   patch -p1 -i $srcdir/glibc-2.18-readdir_r-CVE-2013-4237.patch
-  
+
   # hack fix for strstr issues on x86
   patch -p1 -i $srcdir/glibc-2.18-strstr-hackfix.patch
 
@@ -74,12 +74,13 @@ build() {
       --enable-kernel=2.6.32 \
       --enable-bind-now --disable-profile \
       --enable-stackguard-randomization \
+      --enable-lock-elision \
       --enable-multi-arch
 
   # build libraries with hardening disabled
   echo "build-programs=no" >> configparms
   make
-  
+
   # re-enable hardening for programs
   sed -i "/build-programs=/s#no#yes#" configparms
   echo "CC += -fstack-protector -D_FORTIFY_SOURCE=2" >> configparms

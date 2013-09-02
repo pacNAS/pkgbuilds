@@ -1,6 +1,15 @@
 # $Id: PKGBUILD 187026 2013-06-03 11:15:07Z allan $
 # Maintainer: Tom Gundersen <teg@jklm.no>
 
+# Contributor: Phil Smith
+
+# toolchain build order: linux-api-headers->glibc->binutils->gcc->binutils->glibc
+# NOTE: libtool requires rebuilt with each new gcc version
+
+# pacNAS: Phil Smith <fukawi2@pacnas.org>
+# - adopt to our own settings
+
+
 pkgname=filesystem
 pkgver=2013.08
 pkgrel=1
