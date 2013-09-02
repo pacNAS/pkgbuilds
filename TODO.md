@@ -1,15 +1,8 @@
-The following packages are not (yet) in our repository:
-
-docbook-xml
-docbook-xsl
-doxygen
-
-w3m -> without imlib2 support
-
-
-gettext is not "valid" yet:
-  
-
-python2:
-  missing build dependency for tk 
-  no support for bluez
+* 2013-09-02
+** We need to adopt the pacman-mirrorlist to reflect our own mirros
+** Bump linux-lts to 3.10.10
+** dependencies missing:
+*** samba: 'cifs-utils' 'tdb' 'ldb' 'tevent' 'python2' 'talloc' 'gnutls' 'libbsd' 'libcups' 'gamin' 'iniparser' 'libaio'
+*** systemd: 'dbus-core' 'kbd' 'hwids' 'sysvinit-tools'
+*** linux-lts: 'linux-firmware'
+*** openldap: 'libsasl' 'libltdl' ''
