@@ -1,9 +1,9 @@
 # $Id: PKGBUILD 185682 2013-05-17 08:28:58Z tpowa $
-# Maintainer: 
+# Maintainer:
 
 pkgname=groff
 pkgver=1.22.2
-pkgrel=3
+pkgrel=5
 pkgdesc="GNU troff text-formatting system"
 arch=('i686' 'x86_64')
 url="http://www.gnu.org/software/groff/groff.html"
@@ -36,7 +36,7 @@ check() {
 package() {
   cd $srcdir/$pkgname-$pkgver
   make DESTDIR=$pkgdir install
-  
+
   # add compatibility symlinks
   ln -s eqn $pkgdir/usr/bin/geqn
   ln -s tbl $pkgdir/usr/bin/gtbl
