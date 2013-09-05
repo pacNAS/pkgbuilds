@@ -13,4 +13,7 @@ need to get converted to our use-case.
   1. libsasl needs libmariadbclient, postgresql-libs. not transferred right now
   1. python2 is depending on bluez, which is not transferred right now, same is true for tk
   1. libxslt is still missing, docbook-xsl is still missing
+  1. cmake (needed by e.g. mariadbclient) is not transferred right now, because of dependencies to qt
+  1. openjdk is still missing (quite some dependencies)
+  1. tk is missing (e.g. for python but also for unison)
 
