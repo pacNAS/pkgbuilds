@@ -1,6 +1,7 @@
 # $Id: PKGBUILD 191941 2013-08-01 13:10:14Z dreisner $
 # Maintainer: Dave Reisner <dreisner@archlinux.org>
 # Maintainer: Thomas Bächler <thomas@archlinux.org>
+# Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
 
 pkgname=mkinitcpio
 pkgver=0.15.0
@@ -23,5 +24,10 @@ sha256sums=('2a00421c5ce4abfcc971c71a6efd22f6bbaf0e541f9a93410f35e864c818c3db'
 
 package() {
   make -C "$pkgname-$pkgver" DESTDIR="$pkgdir" install
+
+  # remove fsck hook, cause we are using btrfs, and this leads to errors
+  # during the creation of the image (see https://bugs.archlinux.org/task/37203)
+  sed -e "s|HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"|HOOKS=\"base udev autodetect modconf block filesystems keyboard\"|" \
+      -i $pkgdir/etc/mkinitcpio.conf
 }
 
