@@ -1,22 +1,22 @@
 # Contributor: C Anthony Risinger
 # Contributor: Michael Göhler
+# Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
+
 pkgname='mkinitcpio-btrfs'
-pkgver=0.4.0
+pkgver=0.4.1
 pkgrel=0
 pkgdesc='[initramfs] Rollback operations on BTRFS-based root devices'
-url='https://github.com/xtfxme/mkinitcpio-btrfs'
+url='https://github.com/pacNAS/mkinitcpio-btrfs'
 arch=('any')
 license=('BSD')
 install="${pkgname}.install"
 depends=('mkinitcpio>=0.9.0' 'btrfs-progs' 'kexec-tools')
-source=('btrfs_hook' 'btrfs_install' 'btrfs_config')
+source=('https://github.com/pacNAS/mkinitcpio-btrfs/archive/v0.4.1.tar.gz')
 
 package() {
-    install -o root -g root -D ${srcdir}/btrfs_install ${pkgdir}/usr/lib/initcpio/install/btrfs_advanced
-    install -o root -g root -D ${srcdir}/btrfs_hook    ${pkgdir}/usr/lib/initcpio/hooks/btrfs_advanced
-    install -o root -g root -D ${srcdir}/btrfs_config  ${pkgdir}/etc/default/btrfs_advanced
+    install -o root -g root -D ${srcdir}/${pkgname}-${pkgver}/btrfs_install ${pkgdir}/usr/lib/initcpio/install/btrfs_advanced
+    install -o root -g root -D ${srcdir}/${pkgname}-${pkgver}/btrfs_hook    ${pkgdir}/usr/lib/initcpio/hooks/btrfs_advanced
+    install -o root -g root -D ${srcdir}/${pkgname}-${pkgver}/btrfs_config  ${pkgdir}/etc/default/btrfs_advanced
 }
 
-md5sums=('acdbaa277e58ffbc86332736997bafb2'
-         '8198a307fe8a38195016e7265833473c'
-         'dc9e745e44e9c9c3c4a2de5aa48ce3e1')
+md5sums=('ad1b053e228cd007933a11860cf8b0ee')
