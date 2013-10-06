@@ -1,8 +1,0 @@
-NAME="pacNAS"
-ID=arch
-PRETTY_NAME="pacNAS"
-ANSI_COLOR="0;36"
-HOME_URL="https://pacnas.org/"
-SUPPORT_URL="https://github.com/pacNAS/pkgbuilds/wiki"
-BUG_REPORT_URL="https://github.com/pacNAS/pkgbuilds/issues"
-
