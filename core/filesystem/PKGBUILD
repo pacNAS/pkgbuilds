@@ -1,5 +1,6 @@
 # $Id: PKGBUILD 187026 2013-06-03 11:15:07Z allan $
 # Maintainer: Tom Gundersen <teg@jklm.no>
+# Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
 
 pkgname=filesystem
 pkgver=2013.05

@@ -1,6 +1,7 @@
 # Maintainer : Tobias Powalowski <tpowa@archlinux.org>
 # Maintainer : Ronald van Haren <ronald.archlinux.org>
 # Contributor: Keshav Padram (the.ridikulus.rat) (aatt) (gemmaeiil) (ddoott) (ccoomm)>
+# Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
 
 _GRUB_BZR_REV="5086"
 
