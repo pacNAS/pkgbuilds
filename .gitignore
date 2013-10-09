@@ -1,7 +1,7 @@
-*/pkg/
-*/src/
-*/*.pkg.tar.xz
-*/*.src.tar.xz
-*/*.tar.gz
+pkg
+src
+*.pkg.tar.xz
+*.src.tar.xz
+*.tar.gz
 bash/bash??-???
-*/*.sig
+*.sig
