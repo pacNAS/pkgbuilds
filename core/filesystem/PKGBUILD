@@ -1,5 +1,6 @@
 # $Id: PKGBUILD 187026 2013-06-03 11:15:07Z allan $
 # Maintainer: Tom Gundersen <teg@jklm.no>
+# Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
 
 pkgname=filesystem
 pkgver=2013.05
@@ -116,7 +117,7 @@ md5sums=('7b8e40f8f793e60f471511641bb1c9f2'
          '1745349eb24ed21b4cfaa6f423bddb76'
          '7bc65f234dfb6abf24e7c3b03e86f4ff'
          'd41d8cd98f00b204e9800998ecf8427e'
-         'b16a4674ccf3a932ff34c6c8393a4f33'
+         '902056f74e2a48ebb1623d7b9b6d665f'
          '6f48288b6fcaf0065fcb7b0e525413e0'
          '22518e922891f9359f971f4f5b4e793c'
          'f45389e116ab0b9e9968287617d27c7d'

@@ -1,0 +1,29 @@
+# Maintainer: Markus M. May <triplem@pacnas.org>
+
+pkgname=pacnasinstall
+pkgver=0
+pkgrel=3
+pkgdesc="Easy Installer for pacNAS"
+arch=('any')
+url="https://github.com/pacNAS/pacnasinstall"
+license=('GPL')
+depends=('bash' 'coreutils' 'pacman' 'util-linux' 'arch-install-scripts')
+source=("https://github.com/pacNAS/pacnasinstall/archive/v${pkgver}.${pkgrel}.tar.gz")
+md5sums=('bf5d0c0b50b4181394f2d0fc855a1900')
+
+package() {
+  cd ${srcdir}/$pkgname-$pkgver.$pkgrel
+
+  install -d ${pkgdir}/usr/share/${pkgname}/src
+  install -d ${pkgdir}/usr/share/${pkgname}/scripts
+  install -d ${pkgdir}/usr/bin
+
+  for i in scripts src; do
+    cp -R ${i} "${pkgdir}/usr/share/${pkgname}/"
+  done
+
+  install -Dm755 pacnasinstaller "$pkgdir/usr/share/${pkgname}/"
+  install -Dm755 pn-install "$pkgdir/usr/bin/"
+}
+
+# vim:set ts=2 sw=2 et:
