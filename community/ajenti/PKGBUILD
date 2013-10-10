@@ -18,7 +18,7 @@ makedepends=('python2' 'coffee-script' 'lessc' 'yuicompressor' 'git')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/Eugeny/$pkgname/archive/$pkgver.tar.gz"
   "ajenti.install"
   "ajenti.service")
-md5sums=('c4ad953ffb49a2a3dc3a16dae1b611d0' '075c899d7c3725ee53ed479b24ff0588' 'ebe892b044f0163e8d092bd6568b6c2b')
+md5sums=('f50e7eebe0a63ac0ad42b99066376337' '075c899d7c3725ee53ed479b24ff0588' 'ebe892b044f0163e8d092bd6568b6c2b')
 backup=('etc/ajenti/config.json')
 
 prepare() {
