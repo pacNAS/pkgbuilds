@@ -2,6 +2,7 @@
 # Contributor: Étienne Deparis <etienne [at] depar.is>
 # Contributor: Yannik Stein <yannik.stein [at] gmail.com>
 # Submitter: vbPadre <vbpadre [at] gmail.com>
+# Contributor: Markus M. May <triplem@pacnas.org>
 
 pkgname=ajenti
 pkgver=1.1.4
@@ -13,12 +14,14 @@ license=('LGPL')
 depends=('python2' 'python2-gevent' 'python2-gevent-socketio'
   'python2-lxml' 'python2-passlib' 'python2-psutil' 'python2-daemon'
   'python2-catcher' 'python2-reconfigure' 'python2-pyopenssl'
-  'python2-pillow' 'python2-exconsole')
+  'python2-pillow' 'python2-exconsole' 'stunnel' 'coffee-script' 'lessc' 
+  'yuicompressor' )
 makedepends=('python2' 'coffee-script' 'lessc' 'yuicompressor' 'git')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/Eugeny/$pkgname/archive/$pkgver.tar.gz"
   "ajenti.install"
   "ajenti.service")
-md5sums=('f50e7eebe0a63ac0ad42b99066376337' '075c899d7c3725ee53ed479b24ff0588' 'ebe892b044f0163e8d092bd6568b6c2b')
+install=ajenti.install
+md5sums=('f50e7eebe0a63ac0ad42b99066376337' '6c0c71089a9c59e07c62e87baff20659' 'ebe892b044f0163e8d092bd6568b6c2b')
 backup=('etc/ajenti/config.json')
 
 prepare() {
