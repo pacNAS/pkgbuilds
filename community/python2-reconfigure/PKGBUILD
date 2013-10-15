@@ -1,7 +1,7 @@
 # Maintainer: Étienne Deparis <etienne [at] depar.is>
 
 pkgname=python2-reconfigure
-pkgver=0.1.33
+pkgver=0.1.34
 pkgrel=1
 pkgdesc="An ORM for config files"
 license=("PSF-2+")
@@ -19,8 +19,8 @@ package() {
 	  -e'1s|^#!/usr/bin/env python$|#!/usr/bin/env python2|' \
 	  -e '1s|^#!/usr/bin/python$|#!/usr/bin/env python2|' \
 	  "{}" \;
-	
+
 	python2 setup.py install --root=$pkgdir
 }
 
-md5sums=('ba5c39af2e81501fd9c568698e464c48')
+md5sums=('6c16b075e67494018b09a3ae0a9bfa2e')
