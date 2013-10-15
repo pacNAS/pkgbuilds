@@ -5,7 +5,7 @@
 # Contributor: Markus M. May <triplem@pacnas.org>
 
 pkgname=ajenti
-pkgver=1.1.4
+pkgver=1.1.8
 pkgrel=1
 pkgdesc="An easy server administration frontend."
 arch=('any')
@@ -15,7 +15,7 @@ depends=('python2' 'python2-gevent' 'python2-gevent-socketio'
   'python2-lxml' 'python2-passlib' 'python2-psutil' 'python2-daemon'
   'python2-catcher' 'python2-reconfigure' 'python2-pyopenssl'
   'python2-pillow' 'python2-exconsole' 'stunnel' 'coffee-script' 'lessc'
-  'yuicompressor' )
+  'yuicompressor' 'python2-ldap' )
 makedepends=('python2' 'coffee-script' 'lessc' 'yuicompressor' 'git')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/Eugeny/$pkgname/archive/$pkgver.tar.gz"
   "ajenti.install"
