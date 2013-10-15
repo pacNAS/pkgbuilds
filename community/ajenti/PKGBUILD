@@ -14,7 +14,7 @@ license=('LGPL')
 depends=('python2' 'python2-gevent' 'python2-gevent-socketio'
   'python2-lxml' 'python2-passlib' 'python2-psutil' 'python2-daemon'
   'python2-catcher' 'python2-reconfigure' 'python2-pyopenssl'
-  'python2-pillow' 'python2-exconsole' 'stunnel' 'coffee-script' 'lessc' 
+  'python2-pillow' 'python2-exconsole' 'stunnel' 'coffee-script' 'lessc'
   'yuicompressor' )
 makedepends=('python2' 'coffee-script' 'lessc' 'yuicompressor' 'git')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/Eugeny/$pkgname/archive/$pkgver.tar.gz"
@@ -51,7 +51,7 @@ build() {
 package() {
   cd "$srcdir/$pkgname-$pkgver/dist/$pkgname-$pkgver"
 
-  python2 setup.py install --prefix=/usr --root=$pkgdir
+  python2 setup.py install --root=$pkgdir --optimize=1
 
   # Fix config file permissions
   chmod o-rwx "$pkgdir/etc/ajenti/config.json"
