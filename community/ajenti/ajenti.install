@@ -1,0 +1,17 @@
+post_install() {
+  echo 'Ajenti will listen on HTTPS port 8000 by default'
+  echo 'Default username : root'
+  echo 'Default password : admin'
+  systemctl start ajenti
+}
+
+pre_remove() {
+  systemctl stop ajenti
+}
+
+post_remove() {
+  rm -rf /var/lib/ajenti
+  echo 'Perhaps you want to look in /var/backups and /var/lib/ajenti'
+  echo 'for leftover files. This is where ajenti stores backups of'
+  echo 'configuration files and plugins.'
+}
