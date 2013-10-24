@@ -2,14 +2,14 @@
 
 pkgname=pacnasinstall
 pkgver=0
-pkgrel=3
+pkgrel=4
 pkgdesc="Easy Installer for pacNAS"
 arch=('any')
 url="https://github.com/pacNAS/pacnasinstall"
 license=('GPL')
 depends=('bash' 'coreutils' 'pacman' 'util-linux' 'arch-install-scripts')
 source=("https://github.com/pacNAS/pacnasinstall/archive/v${pkgver}.${pkgrel}.tar.gz")
-md5sums=('bf5d0c0b50b4181394f2d0fc855a1900')
+md5sums=('f5511ce29529245b044feaae4e7a2320')
 
 package() {
   cd ${srcdir}/$pkgname-$pkgver.$pkgrel
