@@ -1,0 +1,41 @@
+# Maintainer: Jacob Cook <jacob at citizenweb dot is>
+# Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
+
+pkgname=genesis
+pkgver=0.4.1
+pkgrel=1
+pkgdesc="Easy, modular server management app"
+
+arch=('any')
+url="http://arkos.io/genesis"
+license=('GPLv3')
+depends=('python2' 'python2-lxml' 'python2-passlib' 'python2-pyopenssl' 'python2-feedparser'
+         'python2-gevent' 'python2-iptables' 'python2-ntplib' 'python2-pyparsing')
+makedepends=('python2' 'python2-passlib' 'python2-setuptools')
+optdepends=('python2-psutil: Task Manager plugin')
+provides=('genesis')
+conflicts=('genesis-git')
+source=("$pkgname-$pkgver.tar.gz"::"http://pkg.arkos.io/resources/$pkgname-$pkgver.tar.gz")
+md5sums=('84a6fef4574293529e2ff03dda44334c')
+backup=('etc/genesis/genesis.conf' 'etc/genesis/users/admin.conf')
+
+build() {
+  cd "$srcdir"
+  tar xvzf "$pkgname-$pkgver.tar.gz"
+
+  msg2 'Replacing python shebang by python2 shebang...'
+  find . -type f -exec sed -i \
+    -e'1s|^#!/usr/bin/env python$|#!/usr/bin/env python2|' \
+    -e '1s|^#!/usr/bin/python$|#!/usr/bin/env python2|' \
+    "{}" \;
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  python2 setup.py install --root="$pkgdir/" --optimize=1
+
+  msg2 'Fixing config file permissions...'
+  chmod o-rwx "$pkgdir/etc/genesis/genesis.conf"
+  mkdir -p $pkgdir/etc/systemd/system/multi-user.target.wants
+  ln -s /usr/lib/systemd/system/genesis.service $pkgdir/etc/systemd/system/multi-user.target.wants/genesis.service
+}
