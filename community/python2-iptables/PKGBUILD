@@ -1,0 +1,29 @@
+# Maintainer: Markus M. May <triplem@pacnas.org>
+
+pkgname=python2-iptables
+pkgver=0.1.2
+pkgrel=1
+pkgdesc="pythonesque wrapper around the Linux iptables"
+arch=('i686' 'x86_64')
+url="http://ldx.github.com/python-iptables/"
+license=('APACHE')
+depends=('python2')
+source=('python2-iptables::git+https://github.com/ldx/python-iptables.git')
+md5sums=('SKIP')
+
+build() {
+  cd "$srcdir/$pkgname"
+
+  msg2 'Replacing python shebang by python2 shebang...'
+  find . -type f -exec sed -i \
+    -e'1s|^#!/usr/bin/env python$|#!/usr/bin/env python2|' \
+    -e '1s|^#!/usr/bin/python$|#!/usr/bin/env python2|' \
+    "{}" \;
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  python2 setup.py install --root="$pkgdir/" --optimize=1
+}
+
+# vim:set ts=2 sw=2 et:

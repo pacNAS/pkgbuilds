@@ -4,19 +4,19 @@
 
 pkgname='mkinitcpio-btrfs'
 pkgver=0.4.1
-pkgrel=0
-pkgdesc='[initramfs] Rollback operations on BTRFS-based root devices'
+pkgrel=1
+pkgdesc='mkinitcpio hook containing advanced features for btrfs-based root devices'
 url='https://github.com/pacNAS/mkinitcpio-btrfs'
 arch=('any')
 license=('BSD')
 install="${pkgname}.install"
 depends=('mkinitcpio>=0.9.0' 'btrfs-progs' 'kexec-tools')
-source=('https://github.com/pacNAS/mkinitcpio-btrfs/archive/v0.4.1.tar.gz')
+source=('https://github.com/pacNAS/mkinitcpio-btrfs/archive/v0.4.1-1.tar.gz')
 
 package() {
-    install -o root -g root -D ${srcdir}/${pkgname}-${pkgver}/btrfs_install ${pkgdir}/usr/lib/initcpio/install/btrfs_advanced
-    install -o root -g root -D ${srcdir}/${pkgname}-${pkgver}/btrfs_hook    ${pkgdir}/usr/lib/initcpio/hooks/btrfs_advanced
-    install -o root -g root -D ${srcdir}/${pkgname}-${pkgver}/btrfs_config  ${pkgdir}/etc/default/btrfs_advanced
+    install -o root -g root -D ${srcdir}/${pkgname}-0.4.1-1/btrfs_install ${pkgdir}/usr/lib/initcpio/install/btrfs_advanced
+    install -o root -g root -D ${srcdir}/${pkgname}-0.4.1-1/btrfs_hook    ${pkgdir}/usr/lib/initcpio/hooks/btrfs_advanced
+    install -o root -g root -D ${srcdir}/${pkgname}-0.4.1-1/btrfs_config  ${pkgdir}/etc/default/btrfs_advanced
 }
 
-md5sums=('ad1b053e228cd007933a11860cf8b0ee')
+md5sums=('721efd563d9f5824f47ff5f2da00c6ce')
