@@ -8,6 +8,7 @@ arch=('i686' 'x86_64')
 url="http://ldx.github.com/python-iptables/"
 license=('APACHE')
 depends=('python2')
+makedepends=('git')
 source=('python2-iptables::git+https://github.com/ldx/python-iptables.git')
 md5sums=('SKIP')
 
