@@ -1,0 +1,31 @@
+# $Id: PKGBUILD 193770 2013-08-30 15:45:22Z dan $
+# Maintainer: Dan McGee <dan@archlinux.org>
+# Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
+
+pkgname=pacman-mirrorlist
+pkgver=20131110
+pkgrel=1
+pkgdesc="pacNAS mirror list for use by pacman"
+arch=('any')
+url=""
+license=('GPL')
+backup=(etc/pacman.d/mirrorlist)
+source=(mirrorlist)
+
+# NOTE on building this package:
+# * Go to the trunk/ directory
+# * Run bash -c ". PKGBUILD; updatelist"
+# * Update the checksums, update pkgver
+# * Build the package
+
+#updatelist() {
+#  rm -f mirrorlist
+#  wget -O mirrorlist https://www.archlinux.org/mirrorlist/all/smart/
+#}
+
+package() {
+  mkdir -p $pkgdir/etc/pacman.d
+  install -m644 $srcdir/mirrorlist $pkgdir/etc/pacman.d/
+}
+
+md5sums=('c35b374ea94c807656434518da0fe634')
