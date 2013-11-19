@@ -10,7 +10,7 @@ url='https://github.com/pacNAS/mkinitcpio-btrfs'
 arch=('any')
 license=('BSD')
 install="${pkgname}.install"
-depends=('mkinitcpio>=0.9.0' 'btrfs-progs' 'kexec-tools')
+depends=('mkinitcpio>=0.15.0' 'btrfs-progs' 'kexec-tools')
 source=('https://github.com/pacNAS/mkinitcpio-btrfs/archive/v0.4.1-1.tar.gz')
 
 package() {
