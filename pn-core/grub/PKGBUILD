@@ -93,7 +93,7 @@ prepare() {
 	sed -e 's#en@cyrillic en@greek##g' -i "${srcdir}/grub-${_pkgver}/po/LINGUAS"
 
   msg "Avoid problem with unifont during compile of grub (see http://savannah.gnu.org/bugs/?40330)"
-  cp ${srcdir}/unifont-5.1.20080820.bdf ${srcdir}/grub-${_pkgver}/
+  cp ${srcdir}/unifont-5.1.20080820.bdf ${srcdir}/grub-${_pkgver}/unifont.bdf
 }
 
 _build_grub-common_and_bios() {
@@ -155,9 +155,6 @@ _build_grub-common_and_bios() {
 		--disable-werror
 	echo
 
-  msg "Avoid problem with unifont during compile of grub (see http://savannah.gnu.org/bugs/?40330)"
-	sed 's|FONT_SOURCE = /usr/share/fonts/misc/unifont.bdf|FONT_SOURCE = ./unifont.bdf |g' -i "${srcdir}/grub-${_pkgver}-bios/Makefile"
-
 	msg "Run make for bios build"
 	make
 	echo
@@ -214,9 +211,6 @@ _build_grub-efi() {
 		--disable-silent-rules \
 		--disable-werror
 	echo
-
-  msg "Avoid problem with unifont during compile of grub (see http://savannah.gnu.org/bugs/?40330)"
-	sed 's|FONT_SOURCE = /usr/share/fonts/misc/unifont.bdf|FONT_SOURCE = ./unifont.bdf |g' -i "${srcdir}/grub-${_pkgver}-efi/Makefile"
 
 	msg "Run make for efi build"
 	make
