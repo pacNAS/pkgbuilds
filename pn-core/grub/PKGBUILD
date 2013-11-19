@@ -125,9 +125,6 @@ _build_grub-common_and_bios() {
 
 	cd "${srcdir}/grub-${_pkgver}-bios/"
 
-  msg "Avoid problem with unifont during compile of grub (see http://savannah.gnu.org/bugs/?40330)"
-  cp ${srcdir}/unifont-5.1.20080820.bdf ${srcdir}/grub-${_pkgver}-bios/
-
 	msg "Run autogen.sh for bios build"
 	./autogen.sh
 	echo
@@ -158,6 +155,9 @@ _build_grub-common_and_bios() {
 		--disable-werror
 	echo
 
+  msg "Avoid problem with unifont during compile of grub (see http://savannah.gnu.org/bugs/?40330)"
+	sed 's|FONT_SOURCE = /usr/share/fonts/misc/unifont.bdf|FONT_SOURCE = ./unifont.bdf |g' -i "${srcdir}/grub-${_pkgver}-bios/Makefile"
+
 	msg "Run make for bios build"
 	make
 	echo
@@ -184,9 +184,6 @@ _build_grub-efi() {
 	unset MAKEFLAGS
 
 	cd "${srcdir}/grub-${_pkgver}-efi/"
-
-  msg "Avoid problem with unifont during compile of grub (see http://savannah.gnu.org/bugs/?40330)"
-  cp ${srcdir}/unifont-5.1.20080820.bdf ${srcdir}/grub-${_pkgver}-efi/
 
 	msg "Run autogen.sh for efi build"
 	./autogen.sh
@@ -217,6 +214,9 @@ _build_grub-efi() {
 		--disable-silent-rules \
 		--disable-werror
 	echo
+
+  msg "Avoid problem with unifont during compile of grub (see http://savannah.gnu.org/bugs/?40330)"
+	sed 's|FONT_SOURCE = /usr/share/fonts/misc/unifont.bdf|FONT_SOURCE = ./unifont.bdf |g' -i "${srcdir}/grub-${_pkgver}-efi/Makefile"
 
 	msg "Run make for efi build"
 	make
