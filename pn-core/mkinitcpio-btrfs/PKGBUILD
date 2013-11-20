@@ -4,7 +4,7 @@
 
 pkgname='mkinitcpio-btrfs'
 pkgver=0.4.1
-pkgrel=1
+pkgrel=99
 pkgdesc='mkinitcpio hook containing advanced features for btrfs-based root devices'
 url='https://github.com/pacNAS/mkinitcpio-btrfs'
 arch=('any')
