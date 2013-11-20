@@ -2,7 +2,7 @@
 
 pkgname=pacnasinstall
 pkgver=0.6
-pkgrel=0
+pkgrel=1
 pkgdesc="Easy Installer for pacNAS"
 arch=('any')
 url="https://github.com/pacNAS/pacnasinstall"
