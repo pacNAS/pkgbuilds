@@ -4,7 +4,7 @@
 
 pkgname=pacman-mirrorlist
 pkgver=20131110
-pkgrel=1
+pkgrel=99
 pkgdesc="pacNAS mirror list for use by pacman"
 arch=('any')
 url=""
