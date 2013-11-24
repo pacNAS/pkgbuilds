@@ -9,7 +9,7 @@ url="https://github.com/pacNAS/pacnasinstall"
 license=('GPL')
 depends=('bash' 'coreutils' 'pacman' 'util-linux' 'arch-install-scripts')
 source=("https://github.com/pacNAS/pacnasinstall/archive/v${pkgver}.tar.gz")
-md5sums=('bccea4b9c55b36ac25efdef4ab1a470b')
+md5sums=('3f3c25158c58226b6f8f330f6fde7c3c')
 
 package() {
   cd ${srcdir}/$pkgname-$pkgver
