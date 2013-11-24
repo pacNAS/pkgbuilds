@@ -12,7 +12,7 @@ source=("https://github.com/pacNAS/pacnasinstall/archive/${pkgname}_v${pkgver}.t
 md5sums=('4d5bbafc2c051234e0f4e3e2c180dba9')
 
 package() {
-  cd ${srcdir}/$pkgname-$pkgver
+  cd ${srcdir}/${pkgname}-${pkgname}_v${pkgver}
 
   install -d ${pkgdir}/usr/share/${pkgname}/src
   install -d ${pkgdir}/usr/share/${pkgname}/scripts
