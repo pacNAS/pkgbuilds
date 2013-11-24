@@ -1,7 +1,7 @@
 # Maintainer: Markus M. May <triplem@pacnas.org>
 
 pkgname=pacnasinstall
-pkgver=0.8
+pkgver=0.8.1
 pkgrel=1
 pkgdesc="Easy Installer for pacNAS"
 arch=('any')
@@ -9,7 +9,7 @@ url="https://github.com/pacNAS/pacnasinstall"
 license=('GPL')
 depends=('bash' 'coreutils' 'pacman' 'util-linux' 'arch-install-scripts')
 source=("https://github.com/pacNAS/pacnasinstall/archive/${pkgname}_v${pkgver}.tar.gz")
-md5sums=('4d5bbafc2c051234e0f4e3e2c180dba9')
+md5sums=('230b1699d3e2d962870fcd97c80cbe16')
 
 package() {
   cd ${srcdir}/${pkgname}-${pkgname}_v${pkgver}
