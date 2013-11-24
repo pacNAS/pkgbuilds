@@ -5,7 +5,7 @@
 
 pkgname=mkinitcpio
 pkgver=0.15.0
-pkgrel=99
+pkgrel=100
 pkgdesc="Modular initramfs image creation utility"
 arch=('any')
 url="http://www.archlinux.org/"
@@ -26,7 +26,8 @@ package() {
 
   # remove fsck hook, cause we are using btrfs, and this leads to errors
   # during the creation of the image (see https://bugs.archlinux.org/task/37203)
-  sed -e "s|HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"|HOOKS=\"base udev autodetect modconf block filesystems keyboard\"|" \
+  # enable btrfs hook ;-)
+  sed -e "s|HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"|HOOKS=\"base udev autodetect modconf block filesystems keyboard btrfs_advanced\"|" \
       -i $pkgdir/etc/mkinitcpio.conf
 }
 
