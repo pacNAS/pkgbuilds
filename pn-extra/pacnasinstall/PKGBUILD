@@ -1,7 +1,7 @@
 # Maintainer: Markus M. May <triplem@pacnas.org>
 
 pkgname=pacnasinstall
-pkgver=0.6
+pkgver=0.7
 pkgrel=1
 pkgdesc="Easy Installer for pacNAS"
 arch=('any')
