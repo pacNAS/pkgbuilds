@@ -1,9 +1,10 @@
 # Maintainer : Tobias Powalowski <tpowa@archlinux.org>
 # Maintainer : Ronald van Haren <ronald.archlinux.org>
 # Contributor: Keshav Padram Amburay <(the ddoott ridikulus ddoott rat) (aatt) (gemmaeiil) (ddoott) (ccoomm)>
+# Contributor: Markus M. May <triplem@pacnas.org>
 
 _pkgver="2.00"
-_GRUB_GIT_COMMIT="5ae5c54c7e5cb048cdd78a53181cee0da698a953"
+_GRUB_GIT_COMMIT="b75db69ac1780a0fe2b3c732407370f203b90c73"
 
 ## grub-extras gpxe is not needed
 
