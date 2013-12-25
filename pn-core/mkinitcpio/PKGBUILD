@@ -4,30 +4,34 @@
 # Contributor (for pacnas): Markus M. May <triplem@pacnas.org>
 
 pkgname=mkinitcpio
-pkgver=0.15.0
-pkgrel=100
+pkgver=16
+pkgrel=99
 pkgdesc="Modular initramfs image creation utility"
 arch=('any')
-url="http://www.archlinux.org/"
+url="https://projects.archlinux.org/mkinitcpio.git/"
 license=('GPL')
 depends=('awk' 'mkinitcpio-busybox>=1.19.4-2' 'kmod' 'util-linux>=2.23' 'libarchive'
          'coreutils' 'bash' 'findutils' 'grep' 'filesystem>=2011.10-1' 'gzip' 'systemd')
 optdepends=('xz: Use lzma or xz compression for the initramfs image'
             'bzip2: Use bzip2 compression for the initramfs image'
             'lzop: Use lzo compression for the initramfs image'
+            'lz4: Use lz4 compression for the initramfs image'
             'mkinitcpio-nfs-utils: Support for root filesystem on NFS')
 backup=('etc/mkinitcpio.conf')
-source=("ftp://ftp.archlinux.org/other/$pkgname/$pkgname-$pkgver.tar.gz")
+source=("ftp://ftp.archlinux.org/other/$pkgname/$pkgname-$pkgver.tar.gz"{,.sig}
+        0001-Add-l-flag-when-using-lz4-compression.patch
+        0002-Exchange-fsck-hook-with-btrfs-advanced-hook.patch)
 install=mkinitcpio.install
-sha256sums=('2a00421c5ce4abfcc971c71a6efd22f6bbaf0e541f9a93410f35e864c818c3db')
+sha256sums=('10821e533eb1ca51a9d3c1d06d8999c08a6151910a9a6029a45ff1638e9228a2'
+            'SKIP'
+            '9a5a5c554d8176e7adb043975a2b59d5e91757a2277219a822d85d005777a433'
+            '1316b7f0a9e617036b8e5842bb0392458fcbd777828b92085f744de01ca27f15')
+
+prepare() {
+  patch -d "$pkgname-$pkgver" -Np1 <"$srcdir/0001-Add-l-flag-when-using-lz4-compression.patch"
+  patch -d "$pkgname-$pkgver" -Np1 <"$srcdir/0002-Exchange-fsck-hook-with-btrfs-advanced-hook.patch"
+}
 
 package() {
   make -C "$pkgname-$pkgver" DESTDIR="$pkgdir" install
-
-  # remove fsck hook, cause we are using btrfs, and this leads to errors
-  # during the creation of the image (see https://bugs.archlinux.org/task/37203)
-  # enable btrfs hook ;-)
-  sed -e "s|HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"|HOOKS=\"base udev autodetect modconf block filesystems keyboard btrfs_advanced\"|" \
-      -i $pkgdir/etc/mkinitcpio.conf
 }
-
