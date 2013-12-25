@@ -1,0 +1,30 @@
+# Maintainer: Markus M. May <triplem@pacnas.org>
+
+pkgname=minimserver
+pkgver=0.8.1
+pkgrel=1
+pkgdesc="UPnP Server"
+arch=('x86_64' 'i686')
+url="http://www.minimserver.com"
+license=('custom:minimserver')
+depends=('java-runtime-headless')
+install=${pkgname}.install
+
+if [ "${CARCH}" = "i686" ]; then
+  _carch=x86
+  md5sums=('4c10b0ca1952983703b84e23bdcdc1eb')
+fi
+if [ "${CARCH}" = "x86_64" ]; then
+  _carch=x64
+  md5sums=('b6e94583d18a6bc55e09b060831a587e')
+fi
+source=("http://minimserver.com/download1/MinimServer-${pkgver}-linux-${_carch}.tar.gz")
+
+package() {
+  cd ${srcdir}
+
+  mkdir -p ${pkgdir}/srv/
+  cp -rf minimserver ${pkgdir}/srv/
+}
+
+# vim:set ts=2 sw=2 et:
